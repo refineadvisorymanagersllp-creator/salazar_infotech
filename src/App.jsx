@@ -107,11 +107,6 @@ const contactChannels = [
     icon: 'mail',
   },
   {
-    label: 'Alternate email',
-    value: 'sundrsingh0333@gmail.com',
-    icon: 'mail',
-  },
-  {
     label: 'Call',
     value: '+91 8796925526',
     icon: 'phone',
@@ -269,6 +264,13 @@ function IconGlyph({ name, className = 'h-5 w-5' }) {
       return (
         <svg {...baseProps}>
           <path d="M7 5.5c0 6.5 5 11.5 11.5 11.5l1.8-3.2-3.8-2.1-2 1.3a12.2 12.2 0 0 1-3.6-3.6l1.3-2-2.1-3.8L7 5.5Z" />
+        </svg>
+      );
+    case 'whatsapp':
+      return (
+        <svg {...baseProps}>
+          <path d="M20 11.8A8 8 0 0 1 8.3 19l-3.3 1 1.1-3.1A8 8 0 1 1 20 11.8Z" />
+          <path d="M9.2 8.9c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.1-.1.3 0 .4.3.6 1 1.4 1.8 1.8.2.1.3.1.4 0l.5-.4c.2-.1.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .2 0 .4-.4.6-.4.2-1.1.4-1.9.2-1.1-.3-2.4-1.2-3.5-2.3-1.1-1.1-2-2.4-2.3-3.5-.2-.8 0-1.5.2-1.9Z" />
         </svg>
       );
     case 'pin':
@@ -429,6 +431,24 @@ function Footer() {
             <p>Unit No 606, Plot No-8, SG Shopping Mall, Sector-9, Rohini City, New Delhi - 110085</p>
             <p>infotechsalazar3@gmail.com</p>
             <p>+91 8796925526</p>
+          </div>
+          <div className="mt-6 flex gap-3">
+            <a
+              href="https://wa.me/918796925526"
+              target="_blank"
+              rel="noreferrer"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-white transition hover:border-emerald-300/40 hover:bg-emerald-300/10"
+              aria-label="Chat on WhatsApp"
+            >
+              <IconGlyph name="whatsapp" className="h-5 w-5" />
+            </a>
+            <a
+              href="tel:+918796925526"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-white transition hover:border-cyan-300/40 hover:bg-cyan-300/10"
+              aria-label="Call Salazar Infotech"
+            >
+              <IconGlyph name="phone" className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </div>
@@ -1010,6 +1030,24 @@ function Contact() {
                 </div>
               ))}
             </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://wa.me/918796925526"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-3 rounded-full border border-emerald-300/25 bg-emerald-300/10 px-5 py-3 text-sm font-semibold text-emerald-100 transition hover:border-emerald-200/50 hover:bg-emerald-300/15"
+              >
+                <IconGlyph name="whatsapp" className="h-4 w-4" />
+                WhatsApp
+              </a>
+              <a
+                href="tel:+918796925526"
+                className="inline-flex items-center gap-3 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-5 py-3 text-sm font-semibold text-cyan-100 transition hover:border-cyan-200/50 hover:bg-cyan-300/15"
+              >
+                <IconGlyph name="phone" className="h-4 w-4" />
+                Call Now
+              </a>
+            </div>
           </SurfaceCard>
 
           <div className="grid gap-5">
@@ -1073,5 +1111,3 @@ export default function App() {
     </Router>
   );
 }
-
-
