@@ -125,6 +125,65 @@ const deliveryTracks = [
   'Security and infrastructure modernization',
 ];
 
+const heroGallery = [
+  {
+    src: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Cyber security code display',
+    title: 'Security monitoring',
+    meta: 'Threat awareness built into delivery',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80',
+    alt: 'Team collaborating around digital screens',
+    title: 'Delivery collaboration',
+    meta: 'Cross-functional execution rhythm',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80',
+    alt: 'Developer workstation with code editor',
+    title: 'Product engineering',
+    meta: 'Frontend, backend, and platform systems',
+  },
+];
+
+const servicesGallery = [
+  {
+    src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Digital globe and network lines',
+    title: 'Connected infrastructure',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Engineering team working at modern office desks',
+    title: 'Hands-on engineering',
+  },
+];
+
+const aboutGallery = [
+  {
+    src: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Abstract digital security visualization',
+    title: 'Future-ready systems',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+    alt: 'Team collaborating in a strategy meeting',
+    title: 'Strategic delivery culture',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80',
+    alt: 'Modern office building exterior',
+    title: 'Enterprise posture',
+  },
+];
+
+const contactSpotlight = {
+  src: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80',
+  alt: 'Business team in a project discussion',
+  title: 'Project conversations that move quickly',
+  meta: 'Structured intake, clearer scope, stronger outcomes',
+};
+
 function IconGlyph({ name, className = 'h-5 w-5' }) {
   const baseProps = {
     fill: 'none',
@@ -258,6 +317,26 @@ function SectionLead({ eyebrow, title, copy, align = 'left' }) {
 
 function SurfaceCard({ children, className = '' }) {
   return <div className={`glass-panel lift-card rounded-[28px] ${className}`}>{children}</div>;
+}
+
+function MediaTile({ image, className = '', compact = false }) {
+  return (
+    <div className={`media-frame ${className}`}>
+      <img
+        src={image.src}
+        alt={image.alt}
+        loading="lazy"
+        className={`media-image ${compact ? 'h-56' : 'h-full min-h-[18rem]'} w-full object-cover`}
+      />
+      <div className="media-overlay" />
+      <div className="media-caption">
+        <p className="text-xs uppercase tracking-[0.24em] text-white/60">
+          {image.meta || 'Salazar visual system'}
+        </p>
+        <p className="mt-2 display-font text-2xl font-semibold text-white">{image.title}</p>
+      </div>
+    </div>
+  );
 }
 
 function Navbar() {
@@ -460,6 +539,8 @@ function Home() {
                 </div>
 
                 <div className="space-y-4">
+                  <MediaTile image={heroGallery[0]} compact />
+
                   <div className="rounded-[24px] border border-white/10 bg-gradient-to-br from-cyan-300/18 via-sky-400/8 to-transparent p-5">
                     <div className="flex items-center gap-3 text-cyan-100">
                       <IconGlyph name="chart" />
@@ -611,6 +692,26 @@ function Home() {
         </div>
       </section>
 
+      <section className="px-4 py-10 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+            <MediaTile image={heroGallery[1]} className="min-h-[24rem]" />
+            <div className="grid gap-5">
+              <MediaTile image={heroGallery[2]} compact />
+              <SurfaceCard className="p-7">
+                <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Visual reinforcement</p>
+                <h3 className="mt-4 display-font text-3xl font-semibold text-white">
+                  Images now support the premium, technical feel instead of just decorating empty space.
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  The photography choices lean toward engineering, infrastructure, and team delivery so the website feels more credible for technology buyers.
+                </p>
+              </SurfaceCard>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="px-4 py-24 md:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 xl:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -747,6 +848,11 @@ function Services() {
           </div>
         </div>
 
+        <div className="mt-16 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+          <MediaTile image={servicesGallery[0]} className="min-h-[24rem]" />
+          <MediaTile image={servicesGallery[1]} className="min-h-[24rem]" />
+        </div>
+
         <div className="mt-16 grid gap-5 lg:grid-cols-3">
           {[
             {
@@ -822,6 +928,14 @@ function About() {
           ))}
         </div>
 
+        <div className="mt-16 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+          <MediaTile image={aboutGallery[0]} className="min-h-[28rem]" />
+          <div className="grid gap-5">
+            <MediaTile image={aboutGallery[1]} compact />
+            <MediaTile image={aboutGallery[2]} compact />
+          </div>
+        </div>
+
         <div className="mt-16 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
           <SurfaceCard className="p-7">
             <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Narrative shift</p>
@@ -878,7 +992,11 @@ function Contact() {
           copy="That helps the company look prepared for larger conversations while still keeping the contact details direct and easy to reach."
         />
 
-        <div className="mt-14 grid gap-5 xl:grid-cols-[1fr_0.9fr]">
+        <div className="mt-14">
+          <MediaTile image={contactSpotlight} className="min-h-[24rem]" />
+        </div>
+
+        <div className="mt-5 grid gap-5 xl:grid-cols-[1fr_0.9fr]">
           <SurfaceCard className="p-7">
             <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Reach Salazar Infotech</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -955,4 +1073,5 @@ export default function App() {
     </Router>
   );
 }
+
 
