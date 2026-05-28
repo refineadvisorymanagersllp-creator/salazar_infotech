@@ -179,6 +179,15 @@ const contactSpotlight = {
   meta: 'Structured intake, clearer scope, stronger outcomes',
 };
 
+const directorProfile = {
+  name: 'Nitin Bharadwaj',
+  role: 'Director',
+  email: 'salazar.nitin@gmail.com',
+  phone: '+91 9250325466',
+  note:
+    'For strategic discussions, partnerships, and direct business coordination, you can also connect with the director contact listed below.',
+};
+
 function IconGlyph({ name, className = 'h-5 w-5' }) {
   const baseProps = {
     fill: 'none',
@@ -981,19 +990,33 @@ function About() {
           </SurfaceCard>
 
           <SurfaceCard className="p-7">
-            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Team posture</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Director details</p>
+            <h3 className="mt-4 display-font text-3xl font-semibold text-white">
+              {directorProfile.name}
+            </h3>
+            <p className="mt-2 text-sm uppercase tracking-[0.22em] text-cyan-200">
+              {directorProfile.role}
+            </p>
+            <p className="mt-5 text-sm leading-7 text-slate-300">{directorProfile.note}</p>
             <div className="mt-6 space-y-4">
-              {[
-                'Discovery-first planning to reduce project ambiguity.',
-                'Engineering and interface work handled as one integrated system.',
-                'Security, support, and infrastructure thinking included in the narrative.',
-                'Visual style aimed at premium, modern, and enterprise-adjacent buyers.',
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-4 rounded-[22px] border border-white/8 bg-slate-950/70 p-4">
-                  <div className="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-300" />
-                  <p className="text-sm leading-7 text-slate-300">{item}</p>
+              <div className="flex items-start gap-4 rounded-[22px] border border-white/8 bg-slate-950/70 p-4">
+                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white">
+                  <IconGlyph name="mail" className="h-4 w-4" />
                 </div>
-              ))}
+                <div>
+                  <p className="text-sm uppercase tracking-[0.22em] text-slate-500">Email</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">{directorProfile.email}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4 rounded-[22px] border border-white/8 bg-slate-950/70 p-4">
+                <div className="mt-1 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white">
+                  <IconGlyph name="phone" className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-sm uppercase tracking-[0.22em] text-slate-500">Direct call</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-300">{directorProfile.phone}</p>
+                </div>
+              </div>
             </div>
           </SurfaceCard>
         </div>
@@ -1051,6 +1074,33 @@ function Contact() {
           </SurfaceCard>
 
           <div className="grid gap-5">
+            <SurfaceCard className="p-7">
+              <p className="text-sm uppercase tracking-[0.24em] text-slate-500">Director contact</p>
+              <h3 className="mt-4 display-font text-2xl font-semibold text-white">
+                {directorProfile.name}
+              </h3>
+              <p className="mt-2 text-sm uppercase tracking-[0.22em] text-cyan-200">
+                {directorProfile.role}
+              </p>
+              <p className="mt-4 text-sm leading-7 text-slate-300">{directorProfile.note}</p>
+              <div className="mt-5 space-y-3">
+                <a
+                  href={`mailto:${directorProfile.email}`}
+                  className="flex items-center gap-3 rounded-[20px] border border-white/8 bg-white/[0.03] px-4 py-3 text-sm text-slate-300 transition hover:border-cyan-300/30 hover:bg-white/[0.05]"
+                >
+                  <IconGlyph name="mail" className="h-4 w-4" />
+                  {directorProfile.email}
+                </a>
+                <a
+                  href="tel:+919250325466"
+                  className="flex items-center gap-3 rounded-[20px] border border-white/8 bg-white/[0.03] px-4 py-3 text-sm text-slate-300 transition hover:border-cyan-300/30 hover:bg-white/[0.05]"
+                >
+                  <IconGlyph name="phone" className="h-4 w-4" />
+                  {directorProfile.phone}
+                </a>
+              </div>
+            </SurfaceCard>
+
             <SurfaceCard className="p-7">
               <p className="text-sm uppercase tracking-[0.24em] text-slate-500">What happens next</p>
               <div className="mt-6 space-y-4">
